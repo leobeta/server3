@@ -1,14 +1,14 @@
 import mongoose, { ConnectionOptions } from 'mongoose';
 
-import config from './config/config';
-
 const dbOptions: ConnectionOptions = {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
 };
 
-mongoose.connect(config.DB.URI, dbOptions)
+const DB_URI = process.env?.DB_CONN_STRING || "";
+
+mongoose.connect(DB_URI, dbOptions)
   .then(() => console.log('Connected'))
   .catch(err => console.log(err));
 

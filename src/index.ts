@@ -1,4 +1,4 @@
-import './database'
+import './config/config';
 
 import app from './app';
 

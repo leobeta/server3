@@ -2,11 +2,11 @@ import { Request, Response } from 'express';
 import User, { IUser } from '../models/user';
 
 import cacheAsync from '../utils/catchAsync';
-import config from '../config/config'
 import jwt from 'jsonwebtoken';
 
+const jwtSecret = process.env?.JWT_SECRET || "";
 function createToken(user: IUser) {
-  return jwt.sign({ id: user.id, email: user.email }, config.jwtSecret, {
+  return jwt.sign({ id: user.id, email: user.email }, jwtSecret, {
     expiresIn: 86400
   });
 }

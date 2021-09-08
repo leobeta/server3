@@ -1,3 +1,5 @@
+import './database'
+
 import authRotes from './routes/auth.routes';
 import cors from 'cors';
 import express from 'express';
@@ -12,7 +14,7 @@ import specialRoutes from './routes/special.routes';
 const app = express();
 
 //settings
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT);
 
 //middlewares
 app.use(morgan('dev'));

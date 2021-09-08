@@ -19,7 +19,7 @@ export interface IItem {
 
 const orderSchema: Schema<IOrder> = new Schema({
   user:
-    { type: Schema.Types.ObjectId, ref: 'user', required: true },
+    { type: Schema.Types.ObjectId, ref: 'Users', required: true },
   order: {
     type: Schema.Types.Mixed,
     required: true
@@ -42,4 +42,4 @@ const orderSchema: Schema<IOrder> = new Schema({
   }
 });
 
-export default model<IOrder>("Order", orderSchema);
+export default model<IOrder>("Orders", orderSchema);

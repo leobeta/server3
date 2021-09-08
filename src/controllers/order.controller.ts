@@ -20,9 +20,7 @@ export const createOrder = cacheAsync(async (req: Request, res: Response) => {
 
 export const getOrder = cacheAsync(async (req: any, res: Response) => {
   try {
-    const order = await Order.findById(req.params.orderId).populate('user').then(() => {
-      console.log('estoy en then')
-    });
+    const order = await Order.findById(req.params.orderId).populate({ path: 'user', select: ['name', 'email', 'phone', 'address'] });
     return res.status(200).json(order);
   } catch (error) {
     return res.status(400).json({ message: error.message });

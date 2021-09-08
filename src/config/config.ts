@@ -1,12 +1,4 @@
-import { config } from 'dotenv';
+import { config } from "dotenv"
+import { resolve } from "path"
 
-config();
-
-export default {
-  jwtSecret: process.env.JWT_SECRET,
-  DB: {
-    URI: process.env.MONGODB_URI,
-    USER: process.env.MONGODB_USER,
-    PASSWORD: process.env.MONGODB_PASSWORD
-  }
-}
+config({ path: resolve(__dirname, "../../.env") })
