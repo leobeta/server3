@@ -44,4 +44,4 @@ productSchema.pre<IProduct>('save', async function (next) {
   next();
 });
 
-export default model<IProduct>("Product", productSchema);
+export default model<IProduct>("Products", productSchema);
