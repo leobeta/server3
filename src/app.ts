@@ -3,7 +3,8 @@ import './database'
 import authRotes from './routes/auth.routes';
 import cors from 'cors';
 import express from 'express';
-import morgan from 'morgan';
+import helmet from 'helmet';
+import morganMiddleware from './middlewares/morganMiddleware';
 import orderRoutes from './routes/order.routes';
 import passport from 'passport';
 import passportMiddleware from "./middlewares/passport";
@@ -17,7 +18,8 @@ const app = express();
 app.set('port', process.env.PORT);
 
 //middlewares
-app.use(morgan('dev'));
+app.use(morganMiddleware);
+app.use(helmet());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
